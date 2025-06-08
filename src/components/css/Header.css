@@ -1,0 +1,35 @@
+.header {
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+  padding: 1rem 0;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.header-logo {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1a202c;
+  text-decoration: none;
+}
+.header-form input {
+  border: 1px solid #e2e8f0;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+}
+.header-links {
+  display: flex;
+  gap: 1rem;
+}
+.header-links a {
+  color: #4b5563;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.header-links a:hover {
+  color: #1a202c;
+}
