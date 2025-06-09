@@ -1,53 +1,69 @@
+import React from 'react';
 import './css/Footer.css';
 
-import React from 'react';
-
 const Footer = () => {
-      return (
-        <footer className="bg-gray-100 p-8 text-gray-600">
-          <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-lg font-semibold mb-2">EventSmart</h3>
-              <p className="mb-2">The smart way to discover, manage, and attend events that matter to you.</p>
-              <div className="flex space-x-2">
-                <span>facebook</span> <span>twitter</span> <span>linkedin</span>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-2">For Attendees</h3>
-              <ul className="space-y-1">
-                <li>Browse Events</li>
-                <li>Get Tickets</li>
-                <li>My Account</li>
-                <li>FAQs</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-2">For Organizers</h3>
-              <ul className="space-y-1">
-                <li>Create Events</li>
-                <li>Pricing</li>
-                <li>Resources</li>
-                <li>Success Stories</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-2">Company</h3>
-              <ul className="space-y-1">
-                <li>About Us</li>
-                <li>Careers</li>
-                <li>Blog</li>
-                <li>Contact Us</li>
-              </ul>
-            </div>
+  return (
+    <footer className="footer">
+      <div className="footer-container">
+        <div className="footer-brand">
+          <h3 className="footer-title">EventSmart</h3>
+          <p className="footer-description">
+            The smart way to discover, manage, and attend events that matter to you.
+          </p>
+          <div className="social-links">
+            <a href="#" className="social-link" aria-label="Facebook">
+              <i className="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" className="social-link" aria-label="Twitter">
+              <i className="fab fa-twitter"></i>
+            </a>
+            <a href="#" className="social-link" aria-label="LinkedIn">
+              <i className="fab fa-linkedin-in"></i>
+            </a>
           </div>
-          <div className="text-center mt-8">
-            <p>© 2025 EventSmart. All rights reserved.</p>
-            <div className="flex justify-center space-x-4 mt-2">
-              <span>Privacy Policy</span> <span>Terms of Service</span> <span>Cookie Policy</span>
-            </div>
-          </div>
-        </footer>
-      );
-    };
-export default Footer;
+        </div>
+
+        <div className="footer-section">
+          <h3 className="footer-title">For Attendees</h3>
+          <ul className="footer-list">
+            <li><a href="#">Browse Events</a></li>
+            <li><a href="#">Get Tickets</a></li>
+            <li><a href="#">My Account</a></li>
+            <li><a href="#">FAQs</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-section">
+          <h3 className="footer-title">For Organizers</h3>
+          <ul className="footer-list">
+            <li><a href="#">Create Events</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Resources</a></li>
+            <li><a href="#">Success Stories</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-section">
+          <h3 className="footer-title">Company</h3>
+          <ul className="footer-list">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="footer-bottom">
+        <p>© 2025 EventSmart. All rights reserved.</p>
+        <div className="footer-policy">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer; 

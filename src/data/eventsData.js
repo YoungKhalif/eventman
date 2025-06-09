@@ -5,7 +5,7 @@ const eventsData = [
     date: "2025-07-15",
     location: "Accra International Conference Centre",
     description: "Join industry leaders and tech enthusiasts for a day of innovation and networking. Tickets starting at 150 GHS.",
-    image: "https://source.unsplash.com/400x300/?technology,conference,ghana"
+    image: "https://i.pinimg.com/736x/b6/55/2b/b6552be1a23bf22cd79c36747f384e71.jpg"
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ const eventsData = [
     date: "2025-08-10",
     location: "National Theatre of Ghana, Accra",
     description: "Explore the latest trends in art and design from renowned artists and creators. Entry fee: 50 GHS.",
-    image: "https://source.unsplash.com/400x300/?african,art,ghana"
+    image: "https://i.pinimg.com/736x/ae/dc/e5/aedce545eff4ee857d35a0c598fb88fa.jpg"
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ const eventsData = [
     date: "2025-09-05",
     location: "Kumasi Innovation Hub",
     description: "Watch startups pitch their ideas to investors and a live audience. Investor tickets: 300 GHS.",
-    image: "https://source.unsplash.com/400x300/?startup,africa,ghana"
+    image: "https://i.pinimg.com/736x/50/2c/4c/502c4cd1a1c096085ff2aa4b1274a9a0.jpg"
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ const eventsData = [
     date: "2025-07-22",
     location: "Aqua Safari Resort, Ada",
     description: "A weekend of relaxation, mindfulness, and wellness workshops. Packages from 800 GHS.",
-    image: "https://source.unsplash.com/400x300/?wellness,resort,ghana"
+    image: "https://i.pinimg.com/736x/98/1f/cb/981fcbfe57d17c65a9e4deca13c27550.jpg"
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ const eventsData = [
     date: "2025-08-20",
     location: "Independence Square, Accra",
     description: "Experience live performances from top artists across multiple genres. VIP passes: 350 GHS.",
-    image: "https://source.unsplash.com/400x300/?afrobeat,concert,ghana"
+    image: "https://pbs.twimg.com/media/Gsd7KmoXwAA2NPN?format=png&name=small"
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ const eventsData = [
     date: "2025-09-12",
     location: "Labadi Beach Hotel, Accra",
     description: "Taste dishes from around the globe prepared by world-class chefs. Tasting menu: 120 GHS.",
-    image: "https://source.unsplash.com/400x300/?ghanaian,food,african"
+    image: "https://pbs.twimg.com/media/Gsm6GQKasAEqMs5?format=jpg&name=small"
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ const eventsData = [
     date: "2025-10-01",
     location: "Kwame Nkrumah University, Kumasi",
     description: "Discover the latest in sustainable technology and eco-friendly living. Student discount: 75 GHS.",
-    image: "https://source.unsplash.com/400x300/?sustainability,africa,ghana"
+    image: "https://pbs.twimg.com/media/GsjmQQUasAY1NpK?format=jpg&name=small"
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ const eventsData = [
     date: "2025-10-15",
     location: "Silverbird Cinemas, Accra",
     description: "A gathering for filmmakers to share, learn, and collaborate. Registration: 100 GHS.",
-    image: "https://source.unsplash.com/400x300/?african,cinema,ghana"
+    image: "https://pbs.twimg.com/media/GshHNhhb0AEIlXa?format=jpg&name=900x900"
   }
 ];
 

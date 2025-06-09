@@ -2,7 +2,7 @@ import React from 'react';
 import EventCard from './EventCard';
 import Button from './Button';
 import './css/EventList.css';
-import eventsData from '../data/eventsData'; // Import mock data as fallback
+import eventsData from '../data/eventsData';
 
 const EventList = () => {
   const [events, setEvents] = React.useState([]);
@@ -10,6 +10,7 @@ const EventList = () => {
   const [hasMore, setHasMore] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(null);
+  const [filter, setFilter] = React.useState('all');
 
   const fetchEvents = async (pageNum) => {
     setLoading(true);
@@ -19,14 +20,14 @@ const EventList = () => {
       const data = await response.json();
       setEvents(prev => [...prev, ...data.events]);
       setHasMore(data.hasMore);
+      setPage(pageNum);
     } catch (err) {
       console.error('Falling back to mock data:', err);
-      // Fallback to mock data if API fails
       const startIndex = 0;
       const endIndex = pageNum * 6;
       setEvents(eventsData.slice(startIndex, endIndex));
       setHasMore(endIndex < eventsData.length);
-      setError(null); // Clear error if we successfully fall back
+      setError(null);
     } finally {
       setLoading(false);
     }
@@ -38,17 +39,76 @@ const EventList = () => {
 
   return (
     <div className="event-list">
-      <h1 className="text-3xl font-bold text-center mb-6">Upcoming Events</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="event-list-header">
+        <h1 className="event-list-title">Discover Upcoming Events</h1>
+        <p className="event-list-subtitle">Find experiences that match your interests</p>
+        
+        <div className="event-filters">
+          <button 
+            className={`filter-btn ${filter === 'all' ? 'active' : ''}`}
+            onClick={() => setFilter('all')}
+          >
+            All Events
+          </button>
+          <button 
+            className={`filter-btn ${filter === 'today' ? 'active' : ''}`}
+            onClick={() => setFilter('today')}
+          >
+            Today
+          </button>
+          <button 
+            className={`filter-btn ${filter === 'week' ? 'active' : ''}`}
+            onClick={() => setFilter('week')}
+          >
+            This Week
+          </button>
+          <button 
+            className={`filter-btn ${filter === 'month' ? 'active' : ''}`}
+            onClick={() => setFilter('month')}
+          >
+            This Month
+          </button>
+        </div>
+      </div>
+
+      <div className="event-grid">
         {events.map(event => (
           <EventCard key={event.id} event={event} />
         ))}
       </div>
-      {hasMore && (
-        <div className="text-center mt-8">
-          <Button onClick={() => fetchEvents(page + 1)} disabled={loading}>
-            {loading ? 'Loading...' : 'Load More Events'}
+
+      {loading && (
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p>Finding amazing events...</p>
+        </div>
+      )}
+
+      {hasMore && !loading && (
+        <div className="load-more">
+          <Button 
+            onClick={() => fetchEvents(page + 1)} 
+            variant="outline"
+            className="load-more-btn"
+          >
+            Show More Events
+            <i className="fas fa-arrow-down"></i>
           </Button>
+        </div>
+      )}
+
+      {!hasMore && (
+        <div className="no-more-events">
+          <div className="divider-line"></div>
+          <p>You've reached the end! Check back later for more events.</p>
+        </div>
+      )}
+
+      {error && (
+        <div className="error-message">
+          <i className="fas fa-exclamation-triangle"></i>
+          <p>{error.message || 'Failed to load events'}</p>
+          <Button onClick={() => fetchEvents(1)}>Try Again</Button>
         </div>
       )}
     </div>
