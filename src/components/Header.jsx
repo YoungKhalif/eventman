@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Button from './Button';
 import './css/Header.css';
 
 const Header = () => {
@@ -9,12 +8,11 @@ const Header = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    // Implement search logic here (e.g., navigate to search results page)
-    console.log('Search:', searchTerm, location);
+    // Implement search logic here
   };
 
   return (
-    <header className="bg-white shadow-md p-4">
+    <header className="header">
       <nav className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <Link to="/" className="text-xl font-bold text-gray-800">EventSmart</Link>
@@ -33,15 +31,17 @@ const Header = () => {
               placeholder="Location"
               className="border p-2 rounded"
             />
-            <Button type="submit">Find Events</Button>
+            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+              Find Events
+            </button>
           </form>
         </div>
         <ul className="flex space-x-4">
-          <li><Link to="/browse-events" className="text-gray-600 hover:text-gray-800">Browse Events</Link></li>
-          <li><Link to="/create-event" className="text-gray-600 hover:text-gray-800">Create Event</Link></li>
-          <li><Link to="/help" className="text-gray-600 hover:text-gray-800">Help</Link></li>
-          <li><Link to="/sign-in" className="text-gray-600 hover:text-gray-800">Sign In</Link></li>
-          <li><Link to="/sign-up" className="text-gray-600 hover:text-gray-800">Sign Up</Link></li>
+          <li><Link to="/browse-events">Browse Events</Link></li>
+          <li><Link to="/create-event">Create Event</Link></li>
+          <li><Link to="/help">Help</Link></li>
+          <li><Link to="/sign-in">Sign In</Link></li>
+          <li><Link to="/sign-up">Sign Up</Link></li>
         </ul>
       </nav>
     </header>

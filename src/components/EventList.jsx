@@ -1,29 +1,43 @@
 import React from 'react';
 import EventCard from './EventCard';
 import Button from './Button';
-import eventsData from '../data/eventsData';
-import './css/EventList.css'; 
+import './css/EventList.css';
+import eventsData from '../data/eventsData'; // Import mock data as fallback
 
 const EventList = () => {
-  const [events, setEvents] = React.useState(eventsData.slice(0, 6));
+  const [events, setEvents] = React.useState([]);
   const [page, setPage] = React.useState(1);
-  const [hasMore, setHasMore] = React.useState(eventsData.length > 6);
+  const [hasMore, setHasMore] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
+  const [error, setError] = React.useState(null);
 
-  const loadMore = () => {
+  const fetchEvents = async (pageNum) => {
     setLoading(true);
-    setTimeout(() => {
-      const nextPage = page + 1;
-      const newEvents = eventsData.slice(0, nextPage * 6);
-      setEvents(newEvents);
-      setPage(nextPage);
-      setHasMore(newEvents.length < eventsData.length);
+    try {
+      const response = await fetch(`http://localhost:3001/api/events/upcoming?page=${pageNum}&limit=6`);
+      if (!response.ok) throw new Error('Failed to fetch events');
+      const data = await response.json();
+      setEvents(prev => [...prev, ...data.events]);
+      setHasMore(data.hasMore);
+    } catch (err) {
+      console.error('Falling back to mock data:', err);
+      // Fallback to mock data if API fails
+      const startIndex = 0;
+      const endIndex = pageNum * 6;
+      setEvents(eventsData.slice(startIndex, endIndex));
+      setHasMore(endIndex < eventsData.length);
+      setError(null); // Clear error if we successfully fall back
+    } finally {
       setLoading(false);
-    }, 500);
+    }
   };
 
+  React.useEffect(() => {
+    fetchEvents(1);
+  }, []);
+
   return (
-    <div className="container mx-auto p-4">
+    <div className="event-list">
       <h1 className="text-3xl font-bold text-center mb-6">Upcoming Events</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {events.map(event => (
@@ -32,7 +46,7 @@ const EventList = () => {
       </div>
       {hasMore && (
         <div className="text-center mt-8">
-          <Button onClick={loadMore} disabled={loading}>
+          <Button onClick={() => fetchEvents(page + 1)} disabled={loading}>
             {loading ? 'Loading...' : 'Load More Events'}
           </Button>
         </div>

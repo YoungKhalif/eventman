@@ -1,7 +1,8 @@
+import './css/CtaSection.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
-import './css/CtaSection.css'; 
+
 
 const CtaSection = () => {
       return (
