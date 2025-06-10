@@ -27,7 +27,7 @@ const Footer = () => {
         <div className="footer-section">
           <h3 className="footer-title">For Attendees</h3>
           <ul className="footer-list">
-            <li><a href="#">Browse Events</a></li>
+            <li><a href="/browse-events">Browse Events</a></li>
             <li><a href="#">Get Tickets</a></li>
             <li><a href="#">My Account</a></li>
             <li><a href="#">FAQs</a></li>
@@ -37,7 +37,7 @@ const Footer = () => {
         <div className="footer-section">
           <h3 className="footer-title">For Organizers</h3>
           <ul className="footer-list">
-            <li><a href="#">Create Events</a></li>
+            <li><a href="/create-event">Create Events</a></li>
             <li><a href="#">Pricing</a></li>
             <li><a href="#">Resources</a></li>
             <li><a href="#">Success Stories</a></li>
