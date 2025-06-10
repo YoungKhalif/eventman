@@ -1,28 +1,18 @@
 /* EventCard.css */
-:root {
-  --primary: #6f42c1;
-  --secondary: #0dcaf0;
-  --accent: #ff6b6b;
-  --dark: #1a202c;
-  --light: #f8f9fa;
-  --gray: #e2e8f0;
-  --text: #4a5568;
-}
-
 .event-card {
-  background: white;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .event-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .card-banner {
@@ -44,66 +34,89 @@
 
 .category-tag {
   position: absolute;
-  top: 16px;
-  right: 16px;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: white;
+  top: 15px;
+  right: 15px;
+  padding: 5px 12px;
+  border-radius: 20px;
   font-size: 0.75rem;
   font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: 50px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+  background-color: #3498db;
+  z-index: 2;
+}
+
+/* Category-specific colors */
+.category-tag.conference {
+  background-color: #3498db; /* Blue */
+}
+
+.category-tag.trade-show {
+  background-color: #9b59b6; /* Purple */
+}
+
+.category-tag.networking-event {
+  background-color: #2ecc71; /* Green */
+}
+
+.category-tag.retreat {
+  background-color: #e67e22; /* Orange */
+}
+
+.category-tag.festival {
+  background-color: #e74c3c; /* Red */
+}
+
+.category-tag.pop-up-event {
+  background-color: #1abc9c; /* Teal */
+}
+
+.category-tag.seminar {
+  background-color: #f1c40f; /* Yellow */
+}
+
+.category-tag.webinar {
+  background-color: #34495e; /* Dark Blue */
 }
 
 .card-content {
-  padding: 1.5rem;
+  padding: 20px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
-  flex: 1;
 }
 
 .event-meta {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 15px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #666;
 }
 
 .meta-item {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--text);
+  gap: 5px;
 }
 
 .meta-item i {
-  color: var(--primary);
-  opacity: 0.8;
+  color: #3498db;
 }
 
 .event-title {
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin: 0.5rem 0 1rem;
-  color: var(--dark);
-  line-height: 1.3;
-  transition: color 0.3s;
-}
-
-.event-card:hover .event-title {
-  color: var(--primary);
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  color: #2c3e50;
 }
 
 .event-description {
-  color: var(--text);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  flex: 1;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  flex-grow: 1;
 }
 
 .card-footer {
@@ -114,78 +127,35 @@
 }
 
 .price-tag {
-  font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary);
-}
-
-.price-tag::before {
-  content: 'From ';
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--text);
-  opacity: 0.8;
+  font-size: 1.1rem;
+  color: #2c3e50;
+  background: #f8f9fa;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #eaeaea;
 }
 
 .view-details-btn {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-  padding: 0.6rem 1.2rem;
-  border-radius: 50px;
-  font-weight: 600;
+  gap: 8px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  color: #3498db;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
 }
 
 .view-details-btn:hover {
-  background: var(--primary);
-  color: white;
-  transform: translateX(5px);
+  color: #2980b9;
 }
 
 .view-details-btn i {
   font-size: 0.8rem;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
 }
 
 .view-details-btn:hover i {
   transform: translateX(3px);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .card-banner {
-    height: 160px;
-  }
-  
-  .card-content {
-    padding: 1.25rem;
-  }
-  
-  .event-title {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .card-banner {
-    height: 140px;
-  }
-  
-  .event-title {
-    font-size: 1.1rem;
-  }
-  
-  .price-tag {
-    font-size: 1.3rem;
-  }
-  
-  .view-details-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
 }
