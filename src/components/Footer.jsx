@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-brand">
-          <h3 className="footer-title">EventSmart</h3>
+          <h3 className="footer-title">EventSmat</h3>
           <p className="footer-description">
             The smart way to discover, manage, and attend events that matter to you.
           </p>
