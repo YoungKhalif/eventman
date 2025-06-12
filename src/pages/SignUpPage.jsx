@@ -1,3 +1,4 @@
+
 // src/pages/SignUpPage.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -166,3 +167,4 @@ const SignUpPage = () => {
 };
 
 export default SignUpPage;
+
