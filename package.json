@@ -12,11 +12,10 @@
     "react-router-dom": "^6.16.0"
   },
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "preview": "vite preview",
-    "server": "node server.js",
-    "dev:all": "start powershell -NoProfile -Command npm run server && npm run dev"
+    "server": "node server.js"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.0.0",
