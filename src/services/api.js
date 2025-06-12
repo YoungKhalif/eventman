@@ -1,4 +1,19 @@
+import axios from 'axios';
+
 const API_URL = 'http://localhost:8000/api';
+
+const api = axios.create({
+  baseURL: API_URL,
+  withCredentials: true, // Required for cookies
+});
+
+// Function to get CSRF cookie
+const getCsrfToken = async () => {
+    await fetch('http://localhost:8000/sanctum/csrf-cookie', {
+        method: 'GET',
+        credentials: 'include',
+    });
+};
 
 export const testConnection = async () => {
     try {
@@ -34,5 +49,17 @@ export const sendTestData = async (data) => {
   } catch (error) {
     console.error('API Error:', error);
     throw error;
+  }
+};
+
+export const registerUser = async (userData) => {
+  try {
+    // Get CSRF cookie
+    await api.get('/sanctum/csrf-cookie');
+    // Register user
+    const response = await api.post('/register', userData);
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'Registration failed');
   }
 };

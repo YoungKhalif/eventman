@@ -1,6 +1,7 @@
 // src/pages/SignUpPage.jsx
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { registerUser } from '../services/api';
 
 const SignUpPage = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,7 @@ const SignUpPage = () => {
     confirmPassword: ''
   });
   const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -20,15 +22,28 @@ const SignUpPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       setError('Passwords do not match');
       return;
     }
-    // Add sign-up logic here
-    console.log('Sign up form submitted:', formData);
-    navigate('/'); // Redirect to home page after signup
+    try {
+      await registerUser({
+        name: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+        password_confirmation: formData.confirmPassword,
+      });
+      setSuccess('Registration successful! Redirecting to login...');
+      setError('');
+      setTimeout(() => {
+        navigate('/sign-in');
+      }, 2000);
+    } catch (err) {
+      setError('Registration failed. Please try again.');
+      setSuccess('');
+    }
   };
 
   return (
@@ -114,6 +129,11 @@ const SignUpPage = () => {
             {error && (
               <div className="text-red-600 text-sm">
                 {error}
+              </div>
+            )}
+            {success && (
+              <div className="text-green-600 text-sm">
+                {success}
               </div>
             )}
 
