@@ -7,7 +7,8 @@ export default defineConfig({
   })],
   server: {
     port: 5173,
-    open: true
+    strictPort: true,
+    host: true
   },
   resolve: {
     extensions: ['.js', '.jsx']

@@ -1,6 +1,12 @@
-import React from 'react'
-const SignInPage = () => {
-      return <div className="container mx-auto p-4">Sign In Page (To be implemented)</div>;
-    };
-  
-  export default SignInPage;
+const SignIn = () => (
+  <div className="page">
+    <h1>Sign In</h1>
+    <form>
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+);
+
+export default SignIn;
