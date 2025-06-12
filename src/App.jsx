@@ -7,6 +7,7 @@ import HomePage from './pages/HomePage';
 import EventDetailPage from './pages/EventDetailPage';
 import SignInPage from './pages/SignInPage';
 import SignUpPage from './pages/SignUpPage';
+import TestApi from './components/TestApi';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/sign-up" element={<SignUpPage />} />
             <Route path="/browse-events" element={<div>Browse Events Page (To be implemented)</div>} />
             <Route path="/help" element={<div>Help Page (To be implemented)</div>} />
+            <Route path="/test-api" element={<TestApi />} />
           </Routes>
         </main>
         <Footer />
