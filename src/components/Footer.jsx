@@ -28,7 +28,7 @@ const Footer = () => {
           <h3 className="footer-title">For Attendees</h3>
           <ul className="footer-list">
             <li><a href="/browse-events">Browse Events</a></li>
-            <li><a href="#">Get Tickets</a></li>
+            <li><a href="/get-ticket">Get Tickets</a></li>
             <li><a href="#">My Account</a></li>
             <li><a href="#">FAQs</a></li>
           </ul>
